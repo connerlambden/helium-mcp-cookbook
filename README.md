@@ -98,6 +98,17 @@ PRs welcome. Recipes should be:
 
 MIT. Recipes are educational and may be adapted freely.
 
+## Interactive companion: Helium News Bias Explorer
+
+If you want to play with the corpus visually instead of writing code, there's a [single-page interactive explorer](https://connerlambden.github.io/helium-news-explorer/) ([source](https://github.com/connerlambden/helium-news-explorer)) that fetches the live corpus and lets you:
+
+- Rank all 216 sources on any of the 37 dimensions
+- Scatter any two dimensions against each other with a live Pearson correlation
+- Click a source to inspect its full 37-dim profile
+- Share view URLs (state encoded in query params)
+
+Vanilla HTML/CSS/JS, zero dependencies, ~10 KB. Calls the same REST endpoint these recipes do.
+
 ## Findings written up using these recipes
 
 - [Fear-coding in 160 news sources correlates +0.85 with political extremism — and only -0.08 with political direction](https://dev.to/connerlambden/fear-coding-in-160-news-sources-correlates-085-with-political-extremism-and-only-008-with-45n2) — an empirical analysis using recipe 01 across the full source-bias corpus.
