@@ -8,12 +8,13 @@ This is a learning resource and a quick-start reference. Clone it, run it, modif
 
 | # | File | What it demonstrates |
 |---|---|---|
-| 01 | `news_bias_dashboard.py` | Pull the source-bias corpus, rank by any structured dimension, print top-N. |
+| 01 | `news_bias_dashboard.py` | Pull the source-bias corpus, rank by any of 37 structured dimensions, print top-N. |
 | 02 | `options_calibration_tracker.py` | Log Helium's ML option-price + `prob_itm` to a CSV so you can Brier-grade it after expiration. |
-| 03 | `balanced_news_summary.py` | Run `mcp_search` for a topic, print probability-weighted outcomes plus citation count. |
+| 03 | `balanced_news_summary.py` | Run `mcp_balanced_search` for a topic, print probability-weighted outcomes plus citation count. |
 | 04 | `source_credibility_ranking.py` | Rank sources by `overall credibility`; show top-N and bottom-N with emotionality/prescriptiveness alongside. |
 | 05 | `ticker_forecast_explorer.py` | Pull bull/bear narrative cases for a watchlist (HTML-stripped), print side-by-side. |
 | 06 | `top_strategies_explorer.py` | Pull the daily short-volatility / long-volatility candidate lists. |
+| 07 | `meme_search.py` | Semantic-search the meme corpus with OCR text, like counts, and image URLs. |
 
 ## Quick start
 
@@ -44,28 +45,19 @@ GET  https://heliumtrades.com/mcp_url_bias/           ?url=https://www.bbc.com/n
 
 JSON in, JSON out. No headers required. Each is curl-able.
 
-## Bias dimensions actually exposed by `mcp_all_source_biases`
+## Bias dimensions exposed by `mcp_all_source_biases`
 
-Each source entry returns two top-level scores plus a nested `bias_values` dict. The dimensions you can rank or filter on:
+Each source entry returns two top-level scores plus a nested `bias_values` dict. Across the 216-source corpus, **37 distinct `bias_values` keys** appear, of which **33 have ≥100-source coverage**.
 
 **Top-level fields**
 - `emotionality_score`
 - `prescriptiveness_score`
 
-**`bias_values` keys**
-- `overall credibility`
-- `fearful bias`
-- `opinion bias`
-- `oversimplification bias`
-- `appeal to authority bias`
-- `covering the response bias`
-- `establishment bias`
-- `integrity bias`
-- `article intelligence`
-- `objective sensational bias`
-- `bearish bullish bias`
+**`bias_values` keys** (alphabetical; coverage ≥100 sources unless noted)
 
-Helium also returns a longer prose `bias_description` per source (HTML) and signature phrases on the source pages. The recipes here focus on the structured queryable dimensions.
+`appeal to authority bias`, `article intelligence`, `bearish bullish bias`, `begging the question bias`, `circular reasoning bias` (n≈79), `conspiracy bias`, `covering the response bias`, `cruelty bias`, `delusion bias`, `descriptive prescriptive bias`, `double standard bias`, `dovish hawkish bias`, `establishment bias`, `fearful bias`, `gossip bias`, `ideological bias`, `immature bias`, `integrity bias`, `liberal conservative bias`, `libertarian authoritarian bias`, `objective sensational bias`, `objective subjective bias`, `opinion bias`, `overall credibility`, `overconfidence bias`, `oversimplification bias`, `political bias`, `scapegoat bias`, `spam bias`, `suicidal empathy bias` (n≈26), `terrorism bias` (n≈83), `victimization bias`, `virtue signal bias`, `woke bias`, `written by AI` (n≈27)
+
+Helium also returns a longer prose `bias_description` per source (HTML) and signature phrases on the source pages. Recipe 01 lets you rank any of these dimensions; recipe 04 ranks credibility specifically.
 
 ## Use as an MCP server (Claude Desktop / Cursor)
 
@@ -105,6 +97,11 @@ PRs welcome. Recipes should be:
 ## License
 
 MIT. Recipes are educational and may be adapted freely.
+
+## Findings written up using these recipes
+
+- [Fear-coding in 160 news sources correlates +0.85 with political extremism — and only -0.08 with political direction](https://dev.to/connerlambden/fear-coding-in-160-news-sources-correlates-085-with-political-extremism-and-only-008-with-45n2) — an empirical analysis using recipe 01 across the full source-bias corpus.
+- [How to Brier-grade your own ML option-pricing forecasts in 40 lines of Python](https://dev.to/connerlambden/how-to-brier-grade-your-own-ml-option-pricing-forecasts-in-40-lines-of-python-2gb2) — a walkthrough of recipe 02 with the scoring formula and calibration histogram.
 
 ## Related
 
