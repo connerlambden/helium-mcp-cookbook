@@ -98,16 +98,14 @@ PRs welcome. Recipes should be:
 
 MIT. Recipes are educational and may be adapted freely.
 
-## Interactive companion: Helium News Bias Explorer
+## Interactive companions
 
-If you want to play with the corpus visually instead of writing code, there's a [single-page interactive explorer](https://connerlambden.github.io/helium-news-explorer/) ([source](https://github.com/connerlambden/helium-news-explorer)) that fetches the live corpus and lets you:
+Two zero-dependency single-page apps that hit the same REST endpoints these recipes do. Source: [github.com/connerlambden/helium-news-explorer](https://github.com/connerlambden/helium-news-explorer).
 
-- Rank all 216 sources on any of the 37 dimensions
-- Scatter any two dimensions against each other with a live Pearson correlation
-- Click a source to inspect its full 37-dim profile
-- Share view URLs (state encoded in query params)
+- **[News Bias Explorer](https://connerlambden.github.io/helium-news-explorer/)** — 216 sources × 37 dimensions. Ranked bars, scatter with live Pearson r, per-source detail, shareable URLs. Calls `mcp_all_source_biases/`.
+- **[Ticker Forecast Dashboard](https://connerlambden.github.io/helium-news-explorer/tickers.html)** — top 10 short-vol and long-vol candidates with ML 37-day forecasts, SVG uncertainty cones, and bull/bear narratives. Calls `mcp_top_strategies/`.
 
-Vanilla HTML/CSS/JS, zero dependencies, ~10 KB. Calls the same REST endpoint these recipes do.
+Both pages: vanilla HTML/CSS/JS, no build step, no analytics. One HTTP GET per page load.
 
 ## Findings written up using these recipes
 
