@@ -115,4 +115,6 @@ Both pages: vanilla HTML/CSS/JS, no build step, no analytics. One HTTP GET per p
 ## Related
 
 - [Helium MCP main repository](https://github.com/connerlambden/helium-mcp)
+- [Helium News Bias Explorer](https://connerlambden.github.io/helium-news-explorer/) — interactive demo for recipe 01
+- [BGPT MCP](https://github.com/connerlambden/bgpt-mcp) — structured scientific paper search for evidence-heavy workflows
 - [`mcp-page` docs](https://heliumtrades.com/mcp-page/)
